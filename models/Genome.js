@@ -1,41 +1,44 @@
-var mongoose = require('mongoose')
-    , Schema = mongoose.Schema;
+var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 var genomeSchema = mongoose.Schema({
-    name: { type: String, required: true},
-    description: String,
-    users: [],
+    organism: {type: Number, required: true},
+    description: { type: String, required: true},
+    buildVersion: {type: String, required: true},
+    file: {type:String, required: true},
+    meta: {type: String, required: true},
     createdAt: Date,
     updatedAt: Date
 });
 
-genomeSchema.statics.findAll = function search(cb) {
-    Organism.find({}).exec(cb);
-};
-
-genomeSchema.virtual('processedUsers').get(function(){
-
-}).set(function(progessedUsers){
-    this.set('processedUsers', processedUsers)
-});
-
-genomeSchema.methods.getUsers = function (cb) {
-    var User = require('./user');
-//    console.log('looking for: ' + this.users);
-    User.find({'_id': {
-        $in: this.users
-    }}).exec(cb);
-};
-
-genomeSchema.pre('save', function (next) {
-    console.log('creating project');
-    if (!this.createdAt) {
-        this.createdAt = new Date;
-    } else {
-        this.updatedAt = new Date;
-    }
-    next();
-});
+//genomeSchema.statics.findAll = function search(cb) {
+//    Organism.find({}).exec(cb);
+//};
+//
+//genomeSchema.virtual('processedUsers').get(function () {
+//
+//}).set(function (progessedUsers) {
+//    this.set('processedUsers', processedUsers)
+//});
+//
+//genomeSchema.methods.getUsers = function (cb) {
+//    var User = require('./user');
+////    console.log('looking for: ' + this.users);
+//    User.find({
+//        '_id': {
+//            $in: this.users
+//        }
+//    }).exec(cb);
+//};
+//
+//genomeSchema.pre('save', function (next) {
+//    console.log('creating project');
+//    if (!this.createdAt) {
+//        this.createdAt = new Date;
+//    } else {
+//        this.updatedAt = new Date;
+//    }
+//    next();
+//});
 
 var Genome = mongoose.model('Genome', genomeSchema);
 
