@@ -1,0 +1,19 @@
+{
+  "name": "GeeFuTu",
+  "version": "0.0.0",
+  "homepage": "https://github.com/wookoouk/GeeFuTu",
+  "authors": [
+    "Martin Page <martin.page@tsl.ac.uk>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "~3.2.0"
+  }
+}
