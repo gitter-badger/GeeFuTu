@@ -119,17 +119,16 @@ hr {
 .masthead {
     /*margin-top: 70px;*/
     position: relative;
-    padding: 70px 15px;
+    padding: 20px 15px;
     color: #FFF;
     text-align: center;
-    background: #3498db url("/img/dna.png") repeat-y fixed 99% top;
+    background: #3498db
 }
 
 .masthead h1 {
+    color: inherit;
     font-size: 80px;
-    color: #2c3e50;
-    font-weight: 400;
-    /*color:#fff;*/
+    text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
 }
 
 .masthead p {
