@@ -1,0 +1,47 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300);
+
+body, html {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.navbar {
+    min-height: 70px;
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+
+.navbar-default .navbar-brand {
+    color: #2ecc71;
+}
+
+.masthead {
+    margin-top: 70px;
+    position: relative;
+    padding: 50px 15px;
+    color: #2ecc71;
+    text-align: center;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
+    background: #bdc3c7 url("/img/header.jpg") no-repeat fixed center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.masthead h1 {
+    /*font-family: 'Lato', sans-serif;*/
+    /*font-weight: 300;*/
+    font-weight: 800;
+    font-size: 80px;
+}
+
+.masthead p {
+    /*color: #FFF;*/
+    visibility: hidden;
+}
+
+.badges {
+    /*color: #34495e;*/
+    margin: 20px;
+    text-align: center;
+}
