@@ -1,0 +1,29 @@
+<% include ../head %>
+
+<div class="container pt">
+
+    <a href="/organisms/new" class="btn btn-default">New Organism</a>
+
+    <% if (organisms) { %>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Genus</th>
+            <th>Species</th>
+            <th>Strain</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% organisms.forEach(function(organism){ %>
+        <tr>
+            <td><%- organism.genus %></td>
+            <td><%- organism.species %></td>
+            <td><%- organism.strain %></td>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+
+<% include ../foot %>

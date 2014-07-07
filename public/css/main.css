@@ -1,47 +1,158 @@
-@import url(http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300);
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
 
-body, html {
-    font-family: 'Open Sans', sans-serif;
+body {
+    margin-top: 50px;
+    background-color: #f2f2f2;
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    color: #555;
+
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    color: #333;
+}
+
+h1 {
+    font-size: 40px;
+}
+
+h3 {
+    color: #7f8c8d;
+    font-weight: 400;
+}
+
+h4 {
+    color: #7f8c8d;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+p {
+    line-height: 28px;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.centered {
+    text-align: center;
+}
+
+a {
+    color: #3498db;
+    word-wrap: break-word;
+
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+a:hover,
+a:focus {
+    color: #7b7b7b;
+    text-decoration: none;
+    outline: 0;
+}
+
+a:before,
+a:after {
+    -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
+    -o-transition: color 0.1s ease-in, background 0.1s ease-in;
+    transition: color 0.1s ease-in, background 0.1s ease-in;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
 }
 
 .navbar {
-    min-height: 70px;
-    padding-top: 10px;
+    /*min-height: 70px;*/
+    /*padding-top: 10px;*/
     margin-bottom: 0;
 }
 
+.navbar-default {
+    background-color: #3498db;
+    border-color: transparent;
+}
+
+.navbar-fixed-top {
+    top: 0;
+    border-width: 0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: #FFF;
+}
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+}
+
 .navbar-default .navbar-brand {
-    color: #2ecc71;
+    color: #FFF;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+    color: #000000;
+    /*background-color: transparent;*/
 }
 
 .masthead {
-    margin-top: 70px;
+    /*margin-top: 70px;*/
     position: relative;
-    padding: 50px 15px;
-    color: #2ecc71;
+    padding: 70px 15px;
+    color: #FFF;
     text-align: center;
-    text-shadow: 0 1px 0 rgba(0, 0, 0, .5);
-    background: #bdc3c7 url("/img/header.jpg") no-repeat fixed center center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    background: #3498db url("/img/dna.png") repeat-y fixed 99% top;
 }
 
 .masthead h1 {
-    /*font-family: 'Lato', sans-serif;*/
-    /*font-weight: 300;*/
-    font-weight: 800;
     font-size: 80px;
+    color: #2c3e50;
+    font-weight: 400;
+    /*color:#fff;*/
 }
 
 .masthead p {
-    /*color: #FFF;*/
-    visibility: hidden;
+    font-size: 20px;
 }
 
 .badges {
     /*color: #34495e;*/
     margin: 20px;
     text-align: center;
+}
+
+.mt {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.pt {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+i {
+    margin: 8px;
+    color: #3498db;
 }

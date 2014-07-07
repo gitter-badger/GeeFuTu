@@ -1,21 +1,21 @@
-var mongoose = require('mongoose')
-    , Schema = mongoose.Schema;
+var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 var organismSchema = mongoose.Schema({
-    localName: { type: String, required: true},
-    description: { type: String, required: true},
-    genus: { type: String, required: true},
-    species: { type: String, required: true},
-    strain: { type: String, required: true},
+    localName: {type: String, required: true},
+    description: {type: String, required: true},
+    genus: {type: String, required: true},
+    species: {type: String, required: true},
+    strain: {type: String, required: true},
     pathovar: String,
-    nvbi: String,
+    ncbi: String,
     createdAt: Date,
     updatedAt: Date
 });
 
-//organismSchema.statics.findAll = function search(cb) {
-//    Organism.find({}).exec(cb);
-//};
+organismSchema.statics.findAll = function(cb) {
+    //err, findings
+    Organism.find({}).exec(cb);
+};
 //
 //organismSchema.virtual('processedUsers').get(function(){
 //
@@ -31,15 +31,15 @@ var organismSchema = mongoose.Schema({
 //    }}).exec(cb);
 //};
 //
-//organismSchema.pre('save', function (next) {
-//    console.log('creating project');
-//    if (!this.createdAt) {
-//        this.createdAt = new Date;
-//    } else {
-//        this.updatedAt = new Date;
-//    }
-//    next();
-//});
+organismSchema.pre('save', function (next) {
+    console.log('creating project');
+    if (!this.createdAt) {
+        this.createdAt = new Date;
+    } else {
+        this.updatedAt = new Date;
+    }
+    next();
+});
 
 var Organism = mongoose.model('Organism', organismSchema);
 
