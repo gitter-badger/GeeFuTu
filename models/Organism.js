@@ -32,7 +32,6 @@ organismSchema.statics.findAll = function(cb) {
 //};
 //
 organismSchema.pre('save', function (next) {
-    console.log('creating project');
     if (!this.createdAt) {
         this.createdAt = new Date;
     } else {

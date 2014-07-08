@@ -10,9 +10,9 @@ var genomeSchema = mongoose.Schema({
     updatedAt: Date
 });
 
-//genomeSchema.statics.findAll = function search(cb) {
-//    Organism.find({}).exec(cb);
-//};
+genomeSchema.statics.findAll = function search(cb) {
+    Genome.find({}).exec(cb);
+};
 //
 //genomeSchema.virtual('processedUsers').get(function () {
 //
@@ -30,15 +30,14 @@ var genomeSchema = mongoose.Schema({
 //    }).exec(cb);
 //};
 //
-//genomeSchema.pre('save', function (next) {
-//    console.log('creating project');
-//    if (!this.createdAt) {
-//        this.createdAt = new Date;
-//    } else {
-//        this.updatedAt = new Date;
-//    }
-//    next();
-//});
+genomeSchema.pre('save', function (next) {
+    if (!this.createdAt) {
+        this.createdAt = new Date;
+    } else {
+        this.updatedAt = new Date;
+    }
+    next();
+});
 
 var Genome = mongoose.model('Genome', genomeSchema);
 

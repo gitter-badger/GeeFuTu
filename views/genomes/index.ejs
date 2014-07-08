@@ -1,3 +1,30 @@
 <% include ../head %>
 
+<div class="container pt">
+
+    <a href="/genomes/new" class="btn btn-default mt">Add Genome</a>
+
+    <% if (genomes.length) { %>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Organism</th>
+            <th>Build version</th>
+            <th>Description</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <% genomes.forEach(function(genome){ %>
+        <tr>
+            <td><%- genome.organism %></td>
+            <td><%- genome.buildVersion %></td>
+            <td><%- genome.description %></td>
+        </tr>
+        <% }) %>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+
 <% include ../foot %>

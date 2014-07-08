@@ -1,3 +1,40 @@
 <% include ../head %>
 
+<div class="container pt">
+
+    <h2>New Organism</h2>
+
+    <form role="form" action="/organisms/add" method="post">
+        <div class="form-group">
+            <label for="localname">Local Name</label>
+            <input type="text" class="form-control" id="localname" name="localname" placeholder="Enter Local Name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description</label>
+            <input type="text" class="form-control" id="description" name="description" placeholder="Enter Description" required>
+        </div>
+        <div class="form-group">
+            <label for="genus">Genus</label>
+            <input type="text" class="form-control" id="genus" name="genus" placeholder="Enter Genus" required>
+        </div>
+        <div class="form-group">
+            <label for="species">Species</label>
+            <input type="text" class="form-control" id="species" name="species" placeholder="Enter Species" required>
+        </div>
+        <div class="form-group">
+            <label for="strain">Strain</label>
+            <input type="text" class="form-control" id="strain" name="strain" placeholder="Enter Strain" required>
+        </div>
+        <div class="form-group">
+            <label for="pathovar">Pathovar</label>
+            <input type="text" class="form-control" id="pathovar" name="pathovar" placeholder="Enter Pathovar">
+        </div>
+        <div class="form-group">
+            <label for="taxonomy">NCBI Taxonomy ID</label>
+            <input type="text" class="form-control" id="taxonomy" name="taxonomy" placeholder="Enter NCBI Taxonomy ID" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
+
 <% include ../foot %>

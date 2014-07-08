@@ -2,8 +2,8 @@ var Organism = require('../models/Organism');
 module.exports.controller = function (app) {
 
     app.get('/organisms', function (req, res) {
-        var orgs = Organism.findAll(function (err,orgs) {
-            if(err) return res.send(err);
+        Organism.findAll(function (err, orgs) {
+            if (err) return res.send(err);
             res.render('organisms/index', {
                 organisms: orgs
             });

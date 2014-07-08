@@ -24,15 +24,14 @@ var featureSchema = mongoose.Schema({
 //    }}).exec(cb);
 //};
 //
-//featureSchema.pre('save', function (next) {
-//    console.log('creating project');
-//    if (!this.createdAt) {
-//        this.createdAt = new Date;
-//    } else {
-//        this.updatedAt = new Date;
-//    }
-//    next();
-//});
+featureSchema.pre('save', function (next) {
+    if (!this.createdAt) {
+        this.createdAt = new Date;
+    } else {
+        this.updatedAt = new Date;
+    }
+    next();
+});
 
 var Feature = mongoose.model('Feature', featureSchema);
 
