@@ -12,6 +12,13 @@ body {
     -webkit-overflow-scrolling: touch;
 }
 
+::selection {
+    background: #9b59b6; /* Safari */
+}
+::-moz-selection {
+    background: #9b59b6; /* Firefox */
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Lato', sans-serif;
     font-weight: 300;
@@ -46,7 +53,6 @@ p {
 a {
     color: #3498db;
     word-wrap: break-word;
-
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
     -moz-transition: color 0.1s ease-in, background 0.1s ease-in;
     -ms-transition: color 0.1s ease-in, background 0.1s ease-in;
