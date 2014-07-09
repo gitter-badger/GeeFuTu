@@ -1,14 +1,13 @@
-var mongoose = require('mongoose')
-    , Schema = mongoose.Schema;
+var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
-var featureSchema = mongoose.Schema({
-    name: { type: String, required: true},
-    description: String,
+var referenceSchema = mongoose.Schema({
+    name: {type: String, required: true},
+    sequence: {type: String, required: true},
     createdAt: Date,
     updatedAt: Date
 });
-//
-//featureSchema.statics.findAll = function search(cb) {
+
+// featureSchema.statics.findAll = function search(cb) {
 //    Organism.find({}).exec(cb);
 //};
 //
@@ -25,8 +24,8 @@ var featureSchema = mongoose.Schema({
 //        $in: this.users
 //    }}).exec(cb);
 //};
-//
-featureSchema.pre('save', function (next) {
+
+referenceSchema.pre('save', function (next) {
     if (!this.createdAt) {
         this.createdAt = new Date;
     } else {
@@ -35,6 +34,6 @@ featureSchema.pre('save', function (next) {
     next();
 });
 
-var Feature = mongoose.model('Feature', featureSchema);
+var Reference = mongoose.model('Reference', referenceSchema);
 
-module.exports = Feature;
+module.exports = Reference;
