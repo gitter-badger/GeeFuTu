@@ -1,6 +1,7 @@
 var express = require('express');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
+var multer  = require('multer');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var fs = require('fs');
@@ -9,7 +10,10 @@ var app = express();
 
 app.use(express.static(__dirname + '/public')); 	// set the static files location /public/img will be /img for users
 app.use(morgan('short')); 					// log every request to the console
-app.use(bodyParser()); 						// pull information from html in POST
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(multer({ dest: './uploads/'}));
+
+
 app.use(methodOverride()); 					// simulate DELETE and PUT
 
 app.set('view engine', 'ejs');

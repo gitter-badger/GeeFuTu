@@ -3,6 +3,7 @@ var mongoose = require('mongoose'), Schema = mongoose.Schema;
 var referenceSchema = mongoose.Schema({
     name: {type: String, required: true},
     sequence: {type: String, required: true},
+    genome: {type: String, required: true},
     createdAt: Date,
     updatedAt: Date
 });

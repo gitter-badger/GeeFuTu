@@ -7,6 +7,7 @@ var sass = require('gulp-sass');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
+var jsdoc = require("gulp-jsdoc");
 
 // Lint Task
 gulp.task('lint', function () {
@@ -14,6 +15,7 @@ gulp.task('lint', function () {
         .pipe(jshint())
         .pipe(jshint.reporter('default'));
 });
+
 
 // Compile Our Sass
 gulp.task('sass', function () {

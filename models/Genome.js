@@ -1,15 +1,21 @@
 var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
+/**
+ *
+ */
 var genomeSchema = mongoose.Schema({
-    organism: {type: Number, required: true},
-    description: { type: String, required: true},
+    organism: {type: String, required: true},
+    description: {type: String, required: true},
     buildVersion: {type: String, required: true},
-    file: {type:String, required: true},
     meta: {type: String, required: true},
     createdAt: Date,
     updatedAt: Date
 });
 
+/**
+ *
+ * @param cb
+ */
 genomeSchema.statics.findAll = function search(cb) {
     Genome.find({}).exec(cb);
 };
@@ -30,6 +36,10 @@ genomeSchema.statics.findAll = function search(cb) {
 //    }).exec(cb);
 //};
 //
+
+/**
+ *
+ */
 genomeSchema.pre('save', function (next) {
     if (!this.createdAt) {
         this.createdAt = new Date;
@@ -39,6 +49,9 @@ genomeSchema.pre('save', function (next) {
     next();
 });
 
+/**
+ *
+ */
 var Genome = mongoose.model('Genome', genomeSchema);
 
 module.exports = Genome;
