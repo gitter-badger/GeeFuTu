@@ -1,4 +1,5 @@
 var Genome = require('../models/Genome');
+var Fasta = require('fasta');
 module.exports.controller = function (app) {
 
     app.get('/genomes', function (req, res) {
@@ -12,6 +13,12 @@ module.exports.controller = function (app) {
 
     app.get('/genomes/new', function (req, res) {
         res.render('genomes/new')
+    });
+
+    app.post('/genomes/add', function(req, res){
+
+        Fasta.read();
+
     });
 
     app.get('/genomes/show', function (req, res) {

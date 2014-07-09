@@ -1,0 +1,167 @@
+@import url(http://fonts.googleapis.com/css?family=Lato:300,400);
+
+
+@mixin color-ease ($speed) {
+  -webkit-transition: color $speed ease-in, background $speed ease-in;
+  -moz-transition: color $speed ease-in, background $speed ease-in;
+  -ms-transition: color $speed ease-in, background $speed ease-in;
+  -o-transition: color $speed ease-in, background $speed ease-in;
+  transition: color $speed ease-in, background $speed ease-in;
+}
+
+body {
+  margin-top: 50px;
+  background-color: #f2f2f2;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  color: #555;
+
+  -webkit-font-smoothing: antialiased;
+  -webkit-overflow-scrolling: touch;
+}
+
+::selection {
+  background: #9b59b6; /* Safari */
+}
+
+::-moz-selection {
+  background: #9b59b6; /* Firefox */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  color: #333;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+h3 {
+  color: #7f8c8d;
+  font-weight: 400;
+}
+
+h4 {
+  color: #7f8c8d;
+  font-weight: 400;
+  font-size: 20px;
+}
+
+p {
+  line-height: 28px;
+  margin-bottom: 25px;
+  font-size: 16px;
+}
+
+.centered {
+  text-align: center;
+}
+
+a {
+  color: #3498db;
+  word-wrap: break-word;
+  @include color-ease(0.1s);
+}
+
+a:hover,
+a:focus {
+  color: #7b7b7b;
+  text-decoration: none;
+  outline: 0;
+}
+
+a:before,
+a:after {
+  @include color-ease(0.1s);
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #ccc;
+  margin: 1em 0;
+  padding: 0;
+}
+
+.navbar {
+  /*min-height: 70px;*/
+  /*padding-top: 10px;*/
+  margin-bottom: 0;
+}
+
+.navbar-default {
+  background-color: #3498db;
+  border-color: transparent;
+}
+
+.navbar-fixed-top {
+  top: 0;
+  border-width: 0;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #FFF;
+}
+
+.navbar-default .navbar-nav > li > a {
+  color: #FFF;
+}
+
+
+.navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+  background-color: transparent;
+}
+
+.navbar-default .navbar-brand {
+  color: #FFF;
+}
+
+.navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
+  color: #000000;
+  /*background-color: transparent;*/
+}
+
+.masthead {
+  /*margin-top: 70px;*/
+  position: relative;
+  padding: 10px 30px 30px 30px;
+  color: #FFF;
+  text-align: center;
+  background: #3498db
+}
+
+.masthead h1 {
+  color: inherit;
+  font-size: 80px;
+  text-shadow: 4px 4px 0 rgba(0, 0, 0, 0.25);
+  margin: 0;
+}
+
+.masthead p {
+  font-size: 20px;
+}
+
+.badges {
+  /*color: #34495e;*/
+  margin: 20px;
+  text-align: center;
+}
+
+.mt {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.pt {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+i {
+  margin: 8px;
+  color: #3498db;
+}

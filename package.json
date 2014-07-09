@@ -22,10 +22,21 @@
   "homepage": "https://github.com/wookoouk/GeeFuTu",
   "dependencies": {
     "body-parser": "^1.4.3",
+    "csv": "^0.4.0",
     "ejs": "^1.0.0",
     "express": "^4.4.5",
     "method-override": "^2.0.2",
     "mongoose": "^3.8.12",
     "morgan": "^1.1.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.5",
+    "gulp-concat": "^2.3.0",
+    "gulp-coveralls": "^0.1.2",
+    "gulp-jshint": "^1.7.0",
+    "gulp-rename": "^1.2.0",
+    "gulp-sass": "^0.7.2",
+    "gulp-uglify": "^0.3.1",
+    "mocha": "^1.20.1"
   }
 }
