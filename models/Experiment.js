@@ -12,9 +12,9 @@ var experimentSchema = mongoose.Schema({
     updatedAt: Date
 });
 
-//experimentSchema.statics.findAll = function search(cb) {
-//    Organism.find({}).exec(cb);
-//};
+experimentSchema.statics.findAll = function search(cb) {
+    Experiment.find({}).exec(cb);
+};
 //
 //experimentSchema.virtual('processedUsers').get(function(){
 //

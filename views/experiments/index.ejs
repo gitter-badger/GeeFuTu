@@ -1,3 +1,30 @@
 <% include ../head %>
 
+<div class="container pt">
+
+    <a href="/experiments/new" class="btn btn-default mt">Add Experiment</a>
+
+    <% if (experiments.length) { %>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Genome</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <% experiments.forEach(function(experiment){ %>
+        <tr>
+            <td><%- experiment.name %></td>
+            <td><%- experiment.description %></td>
+            <td><%- experiment.genome %></td>
+        </tr>
+        <% });%>
+        </tbody>
+    </table>
+    <% } %>
+</div>
+
 <% include ../foot %>
