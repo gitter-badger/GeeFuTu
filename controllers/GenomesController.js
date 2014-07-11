@@ -55,13 +55,21 @@ module.exports.controller = function (app) {
             genome.save(function (err, gen) {
                 if (err) return res.send(err);
 
-                Fasta.read(file.path, function (ref) {
-                    var ref = new Reference({
-                        name: ref.name, seq: ref.seq, genome: gen._id
+                Fasta.read(file.path, function (fakeRef) {
+                    var reference = new Reference({
+                        name: fakeRef.name, sequence: fakeRef.seq, genome: gen._id
                     });
-                    console.log(ref);
+                    reference.save(function (err, r) {
+                        if (err) {
+                            console.log(err);
+                            console.log('data used was:');
+                            console.log(fakeRef);
+                            console.log(gen._id);
+                        }
+                    });
                 }, function () {
                     //TODO delete file
+                    console.log('finished');
                 });
                 return res.redirect('/genomes');
             });

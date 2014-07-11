@@ -1,9 +1,16 @@
-var mongoose = require('mongoose')
-    , Schema = mongoose.Schema;
+var mongoose = require('mongoose'), Schema = mongoose.Schema;
 
 var featureSchema = mongoose.Schema({
-    name: { type: String, required: true},
-    description: String,
+    seqid: {type: String, required: true},
+    source: {type: String, required: true},
+    type: {type: String, required: true},
+    start: {type: String, required: true},
+    end: {type: String, required: true},
+    score: {type: String, required: true},
+    strand: {type: String, required: true},
+    phase: {type: String, required: true},
+    attributes: {type: String, required: true},
+    experiment: {type: String, required: true},
     createdAt: Date,
     updatedAt: Date
 });

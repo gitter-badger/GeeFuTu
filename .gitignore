@@ -4,3 +4,5 @@ public/components
 public/css/*
 node_modules
 uploads/*
+test/*.fasta
+test/*.gff3
