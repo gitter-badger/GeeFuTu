@@ -17,7 +17,7 @@
         <tbody>
         <% experiments.forEach(function(experiment){ %>
         <tr>
-            <td><%- experiment.name %></td>
+            <td><a href="/experiments/<%- experiment._id%>"><%- experiment.name %></a></td>
             <td><%- experiment.description %></td>
             <td><%- experiment.genome %></td>
         </tr>

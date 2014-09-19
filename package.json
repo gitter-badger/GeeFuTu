@@ -21,6 +21,8 @@
   },
   "homepage": "https://github.com/wookoouk/GeeFuTu",
   "dependencies": {
+    "biojs-io-fasta": "0.0.9",
+    "biojs-io-gff": "0.0.1",
     "body-parser": "^1.4.3",
     "ejs": "^1.0.0",
     "express": "^4.4.5",

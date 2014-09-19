@@ -5,7 +5,7 @@ var experimentSchema = mongoose.Schema({
     name: { type: String, required: true},
     description: { type: String, required: true},
     file: { type: String, required: true},
-    genome: { type: Number, required: true},
+    genome: { type: String, required: true},
     meta: String,
     findParents: Boolean,
     createdAt: Date,
