@@ -55,15 +55,15 @@ module.exports.controller = function (app) {
             genome.save(function (err, gen) {
                 if (err) return res.send(err);
 
-                Fasta.read(file.path, function (fakeRef) {
+                Fasta.read(file.path, function (ref) {
                     var reference = new Reference({
-                        name: fakeRef.name, sequence: fakeRef.seq, genome: gen._id
+                        name: ref.name, sequence: ref.seq, genome: gen._id
                     });
                     reference.save(function (err, r) {
                         if (err) {
                             console.log(err);
                             console.log('data used was:');
-                            console.log(fakeRef);
+                            console.log(ref);
                             console.log(gen._id);
                         }
                     });
@@ -77,11 +77,44 @@ module.exports.controller = function (app) {
             return res.send('err');
         }
     });
-    /**
-     *
-     */
+
     app.get('/genomes/show', function (req, res) {
         return res.render('genomes/show')
+    });
+
+    app.get('/api/genome/:id', function (req, res) {
+
+        var id = req.param("id");
+        var chr = req.query.chr;
+        var min = req.query.min;
+        var max = req.query.max;
+
+        Reference.find(
+            {
+                genome: id, name: chr
+                //, start: {$gt: min}, end: {$lt: max }
+            },
+            function (err, genome) {
+                if (err) {
+                    return console.log('error', err);
+                } else {
+                    //console.log(genome);
+                    console.log('FOUND:',genome.length);
+                    console.log(genome);
+                    if(genome && genome.length > 0) {
+                        var g = genome[0];
+                        var seq = g.sequence.substring(min, max);
+                        console.log(seq);
+                    return res.send(seq);
+                    } else {
+                        return res.send();
+                    }
+                }
+            });
+
+
+        console.log('get reference track');
+        //res.send();
     });
 
 };

@@ -1,5 +1,53 @@
 <% include ../head %>
 
+<div id='svgHolder'>Dalliance genome browser goes here. Unless you have an ancient web browser or something.</div>
+
+<script src="/dalliance/build/dalliance-all.js"></script>
+<script src="/js/dallianceBackend.js"></script>
+<script language="javascript">
+    var b = new Browser({
+        chr: 'Cf746836_TGAC_s1v1_scaffold_646',
+        viewStart: 1,
+        viewEnd: 10000,
+        cookieKey: 'Cf746836_TGAC_s1v1_scaffold_646',
+
+        coordSystem: {
+            speciesName: 'Human',
+            taxon: 9606,
+            auth: 'GRCh',
+            version: '37',
+            ucscName: 'hg19',
+        },
+
+        sources: [
+            {
+                name: 'Genome',
+                uri: '/api/genome/<%- genome._id %>',
+                tier_type: 'geefutuGenome'
+            },
+//            {
+//                name: 'Genes',
+//                desc: 'Gene structures from GENCODE 19',
+//                bwgURI: 'http://www.biodalliance.org/datasets/gencode.bb',
+//                stylesheet_uri: 'http://www.biodalliance.org/stylesheets/gencode.xml',
+//                collapseSuperGroups: true,
+//                trixURI: 'http://www.biodalliance.org/datasets/geneIndex.ix'
+//            },
+            {
+                name: 'Experiment',
+//                desc: 'TODO',
+                uri: '/api/experiment/<%- experiment._id %>',
+                stylesheet_uri: '/gff.xml',
+                tier_type: 'geefutuExperiment'
+            }
+        ],
+
+        setDocumentTitle: false,
+        disablePoweredBy: true,
+        noTitle: true
+    });
+
+</script>
 
 
 <% include ../foot %>

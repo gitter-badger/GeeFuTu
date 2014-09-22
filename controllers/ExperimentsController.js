@@ -61,7 +61,7 @@ module.exports.controller = function (app) {
                 strand: feature.strand,
                 phase: feature.phase,
                 attributes: feature.attributes,
-                experiment: experiment
+                experiment: experiment._id
             });
 
             feat.save(function (err, r) {
@@ -79,13 +79,45 @@ module.exports.controller = function (app) {
 
     app.get('/experiments/:id', function (req, res) {
         var id = req.param("id");
-        console.log(id);
+        var genome = null;
 
-        var experiment = Experiment.find({_id: id}, function(err, exp){
-            return res.render('experiments/show', {experiment: experiment});
+        Experiment.find({_id: id}, function (err, exp) {
+            if (err) {
+                console.log(err);
+            } else {
+                var experiment = exp[0];
+                Genome.find({_id: experiment.genome}, function (err, gen) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        var genome = gen[0];
+                        return res.render('experiments/show', {experiment: experiment, genome: genome});
+                    }
+                });
+            }
         });
+    });
 
-        return res.render('experiments/show', {experiment: experiment});
+    app.get('/api/experiment/:id', function (req, res) {
+
+        var id = req.param("id");
+        var chr = req.query.chr;
+        var min = req.query.min;
+        var max = req.query.max;
+
+        Feature.find(
+            {
+                experiment: id
+                , seqid: chr
+                , start: {$gt: min}, end: {$lt: max }
+            },
+            function (err, features) {
+                if (err) {
+                    console.log('error', err);
+                } else {
+                    return res.send(features);
+                }
+            });
     });
 
 };
