@@ -19,33 +19,6 @@ GeeFuTuReferenceSource.prototype.fetch = function (chr, min, max, pool, callback
             if (req.status >= 300) {
                 callback('Error code ' + req.status, null);
             } else {
-                //var jf = JSON.parse(req.response);
-                //console.log('jf',jf);
-                //var refs = [];
-//                for (fi = 0; fi < jf.length; ++fi) {
-//                    var j = jf[fi];
-//
-//                    var f = new DASFeature();
-//                    f.segment = chr;
-//                    f.min = j['start'] | 0;
-//                    f.max = j['end'] | 0;
-//                    f.id = j._id;
-//                    if (f.id == thisB.ref)
-//                        f.type = 'ref-snp'
-//                    else
-//                        f.type = 'snp';
-//
-//                    f.score = j.score || j.score2;
-//
-//                    if (j.color)
-//                        f.itemRgb = j.color;
-//                    else
-//                        f.itemRgb = null;
-//
-//
-//                    features.push(f);
-//                }
-
                 var resp = req.response;
                 var sequence = new DASSequence(chr, min, max, 'DNA', resp);
                 return callback(null, sequence);
@@ -55,18 +28,9 @@ GeeFuTuReferenceSource.prototype.fetch = function (chr, min, max, pool, callback
     };
 
     thisB.busy++;
-    //thisB.notifyActivity();
-
     req.open('GET', url, true);
     req.responseType = 'text';
     req.send('');
-
-    //var dna = '';
-    //for (var p = min; p < max; ++p) {
-    //    dna += this.actg[(p % this.actg.length)];
-    //}
-    //var sequence = new DASSequence(chr, min, max, 'DNA', dna);
-    //return callback(null, sequence);
 };
 
 GeeFuTuReferenceSource.prototype.getSeqInfo = function (chr, callback) {
@@ -167,13 +131,9 @@ GeeFuTuFeatureSource.prototype.fetch = function (chr, min, max, scale, types, po
 
                     f.score = j.score || j.score2;
 
-                    //if (j.color)
-                    //    f.itemRgb = j.color;
-                    //else
-                    //    f.itemRgb = null;
-
                     features.push(f);
                 }
+                //console.log(features);
                 callback(null, features);
             }
         }

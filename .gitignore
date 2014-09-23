@@ -6,3 +6,5 @@ node_modules
 uploads/*
 test/*.fasta
 test/*.gff3
+
+public/dalliance
