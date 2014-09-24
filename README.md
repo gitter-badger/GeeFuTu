@@ -17,7 +17,7 @@ GeeFuTu is still heavily under development, please check the Road Map for list o
 * Editing inside BioDalliance.
 * Private projects with custom permissions.
 * Public projects.
-* GFF, BAM, VCF, BigWig and BED support.
+* GFF, BAM, VCF, BigWig BED and BigBED support.
 * BioJS visualisation.
 * Tutorial.
 * Full test coverage.
@@ -26,4 +26,6 @@ GeeFuTu is still heavily under development, please check the Road Map for list o
 * Documentation.
 * Cross OS/Browser support (Safari, Chrome, Firefox, Opera, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).
 
+### March 2015
 
+* Multiple Alignment Format (HAL?)
