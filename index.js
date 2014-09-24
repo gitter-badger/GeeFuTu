@@ -1,4 +1,7 @@
 var express = require('express');
+var passport = require('passport');
+LocalStrategy = require('passport-local').Strategy
+var session = require('express-session');
 var morgan = require('morgan');
 var bodyParser = require('body-parser');
 var multer  = require('multer');
@@ -14,7 +17,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(multer({ dest: './uploads/'}));
 
 
-app.use(methodOverride()); 					// simulate DELETE and PUT
+app.use(passport.initialize());
+app.use(passport.session());
+
+//app.use(methodOverride()); 					// simulate DELETE and PUT
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');

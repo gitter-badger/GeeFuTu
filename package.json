@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/wookoouk/GeeFuTu",
   "dependencies": {
+    "bcrypt": "^0.8.0",
     "biojs-io-fasta": "0.0.9",
     "biojs-io-gff": "0.0.1",
     "body-parser": "^1.4.3",
@@ -30,7 +31,9 @@
     "method-override": "^2.0.2",
     "mongoose": "^3.8.12",
     "morgan": "^1.1.1",
-    "multer": "^0.1.0"
+    "multer": "^0.1.0",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
   },
   "devDependencies": {
     "gulp": "^3.8.5",
