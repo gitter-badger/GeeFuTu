@@ -22,6 +22,7 @@ GeeFuTu is still heavily under development, please check the Road Map for list o
 * Tutorial.
 * Full test coverage.
 * Remote logging.
+* Synteny view.
 * Public API
 * Documentation.
 * Cross OS/Browser support (Safari, Chrome, Firefox, Opera, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).

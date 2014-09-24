@@ -1,41 +1,56 @@
 var User = require('../models/User');
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+
 module.exports.controller = function (app) {
+
+    passport.serializeUser(function(user, done) {
+        done(null, user._id);
+    });
+    passport.deserializeUser(function(id, done) {
+        User.findById(id, function(err, user){
+            if(!err) done(null, user);
+            else done(err, null)
+        })
+    });
+
+    passport.use(new LocalStrategy(
+        function (username, password, done) {
+            User.findOne({username: username}, function (err, user) {
+                if (err) {
+                    return done(err);
+                }
+                if (!user) {
+                    return done(null, false, {message: 'Incorrect username.'});
+                }
+                user.comparePassword(password, function (err, match) {
+                    if (err) {
+                        return done(null, false, {message: 'Incorrect username.'});
+                    }
+                    if (match) {
+                        //ITS GOOD!
+                        return done(null, user);
+                    } else {
+                        return done(null, false, {message: 'could not match.'});
+                    }
+                });
+            });
+        }
+    ));
+
 
     app.get('/signin', function (req, res) {
         return res.render('auth/signin');
     });
-    app.post('/signin', function (req, res) {
-
-        var username = req.body.username;
-        var password = req.body.password;
-
-        User.findOne({username: username}, function (err, user) {
-            if (err) {
-                console.log(err);
-                res.send(err);
-            } else {
-                if (user) {
-                    console.log(user);
-                    user.comparePassword(password, function (err, match) {
-                        if (err) {
-                            console.log(err);
-                            res.send(err);
-                        } else {
-                            if (match) {
-                                req.session.userName = username;
-                                res.redirect('/');
-                            } else {
-                                res.send('bad password');
-                            }
-                        }
-                    });
-                } else {
-                    res.send('could not find user');
-                }
-            }
-        });
-    });
+    app.post('/signin',
+        passport.authenticate('local', {
+            successRedirect: '/',
+            failureRedirect: '/signin',
+            failureFlash: true
+        })
+    );
 
     app.get('/signup', function (req, res) {
         return res.render('auth/signup');
@@ -69,7 +84,7 @@ module.exports.controller = function (app) {
         }
     });
 
-    app.get('/signout', function(req, res){
+    app.get('/signout', function (req, res) {
         req.session.userName = null;
         res.redirect('/');
     });

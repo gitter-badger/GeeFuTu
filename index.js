@@ -8,14 +8,16 @@ var multer = require('multer');
 var mongoose = require('mongoose');
 var cookieParser = require('cookie-parser');
 var fs = require('fs');
+var flash = require('connect-flash');
 var app = express();
 
-//logging
 app.use(morgan('dev'));
-//handle cookies
 app.use(cookieParser());
-//session secret - CHANGE THIS TO SOMETHING ELSE!
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(multer({dest: './uploads/'}));
 app.use(session({
+    //session secret - CHANGE THIS TO SOMETHING ELSE!
     secret: 'changemenow',
     cookie: {
         //secure: true,
@@ -24,15 +26,11 @@ app.use(session({
         maxAge: 24 * 60 * 60 * 1000
     }
 }));
-//serve up public assets
-app.use(express.static(__dirname + '/public'));
-//...
-app.use(bodyParser.urlencoded({extended: false}));
-//...
-app.use(bodyParser.json());
-//multi-part forms (files)
-app.use(multer({dest: './uploads/'}));
 
+app.use(express.static(__dirname + '/public'));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
@@ -40,16 +38,17 @@ app.set('views', __dirname + '/views');
 // pass username to all responses (views)
 var appendLocalsToUseInViews = function (req, res, next) {
 
-    console.log('appendLocalsToUseInViews');
-    console.log(req.session);
-    res.locals.request = req;
-    if (req.session != null && req.session.userName != null) {
+    console.log('got it', req.user);
 
-        res.locals.userName = req.session.userName;
+    if (req.user != null && req.user.username != null) {
+        res.locals.userName = req.user.username;
+
     }
     next(null, req, res);
 };
 app.use(appendLocalsToUseInViews);
+
+
 
 app.get('/', function (req, res) {
     res.render('index');
