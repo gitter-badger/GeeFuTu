@@ -2,9 +2,14 @@
 
 <img align="right" height="300" src="https://raw.githubusercontent.com/wookoouk/GeeFuTu/master/public/GeeFuTu.png">
 
-GeeFuTu is a site for sharing and updating genomics data.
+> GeeFuTu, Social Science
 
-### Roadmap
+GeeFuTu is a platform for sharing and updating genomics data, projects can be private with per experiment permissions or public for anybody to view and edit.
+
+GeeFuTu is still heavily under development, please check the Road Map for list of completed and upcoming features.
+
+
+### Road Map
 
 #### Dec 2014
 
@@ -17,6 +22,7 @@ GeeFuTu is a site for sharing and updating genomics data.
 * Tutorial.
 * Full test coverage.
 * Remote logging.
+* Public API
 * Documentation.
 * Cross OS/Browser support (Safari, Chrome, Firefox, Opera, IE9 and mobile browsers (Android, Chrome Mobile, iOS Safari).
 
