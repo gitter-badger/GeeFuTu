@@ -34,7 +34,12 @@
                 <li><a href="/tools">Tools</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <%if(locals.userName){ %>
+                <li><a href="/signin"><%- locals.userName %></a></li>
+               <% } else { %>
                 <li><a href="/signin">Sign In</a></li>
+                <% } %>
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>
