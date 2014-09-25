@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wookoouk/GeeFuTu.git"
+    "url": "https://github.com/wookoouk/ChowChow.git"
   },
   "keywords": [
     "bioinformatics",
@@ -17,9 +17,9 @@
   "author": "Martin Page <martin.page@tsl.ac.uk>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wookoouk/GeeFuTu/issues"
+    "url": "https://github.com/wookoouk/ChowChow/issues"
   },
-  "homepage": "https://github.com/wookoouk/GeeFuTu",
+  "homepage": "https://github.com/wookoouk/ChowChow",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.8.0",

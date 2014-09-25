@@ -1,6 +1,6 @@
-# ChowChow GeeFuTu
+# ChowChow (GeeFuTu)
 
-<img align="right" height="300" src="https://raw.githubusercontent.com/wookoouk/GeeFuTu/master/public/GeeFuTu.png">
+<img align="right" height="300" src="https://raw.githubusercontent.com/wookoouk/ChowChow/master/public/GeeFuTu.png">
 
 > ChowChow, Social Science
 
