@@ -1,4 +1,4 @@
-# GeeFuTu
+# GeeFuTu (ChowChow)
 
 <img align="right" height="300" src="https://raw.githubusercontent.com/wookoouk/GeeFuTu/master/public/GeeFuTu.png">
 
