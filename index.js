@@ -60,7 +60,7 @@ fs.readdirSync('./controllers').forEach(function (file) {
 });
 
 
-mongoose.connect('mongodb://localhost/geefutu');
+mongoose.connect('mongodb://localhost/chowchow');
 app.listen(8080);
 console.log('8080');
 
