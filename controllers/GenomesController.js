@@ -2,6 +2,7 @@ var Genome = require('../models/Genome');
 var Organism = require('../models/Organism');
 var Reference = require('../models/Reference');
 var Fasta = require('../lib/fasta');
+var async = require('async');
 
 /**
  *
@@ -12,8 +13,22 @@ module.exports.controller = function (app) {
     app.get('/genomes', function (req, res) {
         Genome.findAll(function (err, genomes) {
             if (err) return res.send(err);
-            res.render('genomes/index', {
-                genomes: genomes
+
+            async.each(genomes, function (genome, callback) {
+                Organism.findOne({_id: genome.organism}, function (err, org) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        genome.organism = org.localName;
+                    }
+                    callback();
+                });
+
+            }, function (err) {
+                if(err){console.log(err)}
+                res.render('genomes/index', {
+                    genomes: genomes
+                });
             });
         });
     });

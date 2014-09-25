@@ -1,9 +1,12 @@
 <% include ../head %>
 
-<h2><%- experiment._id %></h2>
+<div class="container pt">
 
-<div id='svgHolder'>Dalliance genome browser goes here. Unless you have an ancient web browser or something.</div>
+    <h2><%- genome.buildVersion %>:<%- experiment.name %></h2>
 
+    <div id='svgHolder'>Dalliance genome browser goes here. Unless you have an ancient web browser or something.</div>
+
+</div>
 <script src="/dalliance/build/dalliance-all.js"></script>
 <script src="/js/dallianceBackend.js"></script>
 <script language="javascript">
@@ -27,17 +30,10 @@
                 uri: '/api/genome/<%- genome._id %>',
                 tier_type: 'geefutuGenome'
             },
-//            {
-//                name: 'Genes',
-//                desc: 'Gene structures from GENCODE 19',
-//                bwgURI: 'http://www.biodalliance.org/datasets/gencode.bb',
-//                stylesheet_uri: 'http://www.biodalliance.org/stylesheets/gencode.xml',
-//                collapseSuperGroups: true,
-//                trixURI: 'http://www.biodalliance.org/datasets/geneIndex.ix'
-//            },
+
             {
                 name: 'Experiment',
-//                desc: 'TODO',
+                desc: 'TODO',
                 uri: '/api/experiment/<%- experiment._id %>',
                 stylesheet_uri: '/gff.xml',
                 tier_type: 'geefutuExperiment'

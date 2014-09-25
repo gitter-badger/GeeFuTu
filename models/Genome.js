@@ -19,23 +19,6 @@ var genomeSchema = mongoose.Schema({
 genomeSchema.statics.findAll = function search(cb) {
     Genome.find({}).exec(cb);
 };
-//
-//genomeSchema.virtual('processedUsers').get(function () {
-//
-//}).set(function (progessedUsers) {
-//    this.set('processedUsers', processedUsers)
-//});
-//
-//genomeSchema.methods.getUsers = function (cb) {
-//    var User = require('./user');
-////    console.log('looking for: ' + this.users);
-//    User.find({
-//        '_id': {
-//            $in: this.users
-//        }
-//    }).exec(cb);
-//};
-//
 
 /**
  *

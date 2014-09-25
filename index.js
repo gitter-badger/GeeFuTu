@@ -38,8 +38,6 @@ app.set('views', __dirname + '/views');
 // pass username to all responses (views)
 var appendLocalsToUseInViews = function (req, res, next) {
 
-    console.log('got it', req.user);
-
     if (req.user != null && req.user.username != null) {
         res.locals.userName = req.user.username;
 
@@ -47,7 +45,6 @@ var appendLocalsToUseInViews = function (req, res, next) {
     next(null, req, res);
 };
 app.use(appendLocalsToUseInViews);
-
 
 
 app.get('/', function (req, res) {

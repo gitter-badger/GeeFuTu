@@ -2,14 +2,29 @@ var Experiment = require('../models/Experiment');
 var Genome = require('../models/Genome');
 var GFF = require('../lib/gff3');
 var Feature = require('../models/Feature');
+var async = require('async');
 
 module.exports.controller = function (app) {
 
     app.get('/experiments', function (req, res) {
         Experiment.findAll(function (err, experiments) {
             if (err) return res.send(err);
-            res.render('experiments/index', {
-                experiments: experiments
+
+            async.each(experiments, function (experiment, callback) {
+                Genome.findOne({_id: experiment.genome}, function (err, gen) {
+                    if (err) {
+                        console.log(err);
+                    } else {
+                        experiment.genome = gen.buildVersion;
+                    }
+                    callback();
+                });
+
+            }, function (err) {
+                if(err){console.log(err)}
+                res.render('experiments/index', {
+                    experiments: experiments
+                });
             });
         });
     });
@@ -85,6 +100,9 @@ module.exports.controller = function (app) {
             if (err) {
                 console.log(err);
             } else {
+
+
+
                 var experiment = exp[0];
                 Genome.find({_id: experiment.genome}, function (err, gen) {
                     if (err) {
@@ -107,9 +125,7 @@ module.exports.controller = function (app) {
 
         Feature.find(
             {
-                experiment: id
-                , seqid: chr
-                , start: {$gt: min}, end: {$lt: max }
+                experiment: id, seqid: chr, start: {$gt: min}, end: {$lt: max}
             },
             function (err, features) {
                 if (err) {

@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/wookoouk/GeeFuTu",
   "dependencies": {
+    "async": "^0.9.0",
     "bcrypt": "^0.8.0",
     "body-parser": "^1.4.3",
     "chalk": "^0.5.1",
