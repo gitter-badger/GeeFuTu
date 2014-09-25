@@ -1,4 +1,5 @@
 # GeeFuTu
+[![Gitter](https://badges.gitter.im/Join Chat.svg)](https://gitter.im/wookoouk/GeeFuTu?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
 <img align="right" height="300" src="https://raw.githubusercontent.com/wookoouk/GeeFuTu/master/public/GeeFuTu.png">
 
