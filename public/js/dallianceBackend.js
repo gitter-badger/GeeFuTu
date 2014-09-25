@@ -1,12 +1,12 @@
 //GENOME
 
-function ChowChowReferenceSource(source) {
+function GeeFuTuReferenceSource(source) {
     //this.actg = ['A', 'C', 'T', 'G'];
     this.source = source;
     this.uri = source.uri;
 }
 
-ChowChowReferenceSource.prototype.fetch = function (chr, min, max, pool, callback) {
+GeeFuTuReferenceSource.prototype.fetch = function (chr, min, max, pool, callback) {
 
     var thisB = this;
     var url = this.uri + '?chr=' + chr + '&min=' + min + '&max=' + max;
@@ -33,19 +33,19 @@ ChowChowReferenceSource.prototype.fetch = function (chr, min, max, pool, callbac
     req.send('');
 };
 
-ChowChowReferenceSource.prototype.getSeqInfo = function (chr, callback) {
+GeeFuTuReferenceSource.prototype.getSeqInfo = function (chr, callback) {
     return callback({length: 200000000});
 };
 
-dalliance_registerSourceAdapterFactory('ChowChowGenome', function (source) {
-    return {sequence: new ChowChowReferenceSource(source)};
+dalliance_registerSourceAdapterFactory('geefutuGenome', function (source) {
+    return {sequence: new GeeFuTuReferenceSource(source)};
 });
 
 
 //EXPERIMENT
 
 
-function ChowChowFeatureSource(source) {
+function GeeFuTuFeatureSource(source) {
     this.source = source;
     this.uri = source.uri;
     this.refs = [];
@@ -56,21 +56,21 @@ function ChowChowFeatureSource(source) {
     this.changeListeners = [];
 }
 
-ChowChowFeatureSource.prototype.setRef = function (ref) {
+GeeFuTuFeatureSource.prototype.setRef = function (ref) {
     this.refs = [ref];
     this.notifyChange();
 };
 
-ChowChowFeatureSource.prototype.addRef = function (ref) {
+GeeFuTuFeatureSource.prototype.addRef = function (ref) {
     this.refs.push(ref);
     this.notifyChange();
 };
 
-ChowChowFeatureSource.prototype.addChangeListener = function (listener) {
+GeeFuTuFeatureSource.prototype.addChangeListener = function (listener) {
     this.changeListeners.push(listener);
 };
 
-ChowChowFeatureSource.prototype.notifyChange = function () {
+GeeFuTuFeatureSource.prototype.notifyChange = function () {
     for (var li = 0; li < this.changeListeners.length; ++li) {
         try {
             this.changeListeners[li](this.busy);
@@ -80,11 +80,11 @@ ChowChowFeatureSource.prototype.notifyChange = function () {
     }
 };
 
-ChowChowFeatureSource.prototype.addActivityListener = function (listener) {
+GeeFuTuFeatureSource.prototype.addActivityListener = function (listener) {
     this.activityListeners.push(listener);
 };
 
-ChowChowFeatureSource.prototype.notifyActivity = function () {
+GeeFuTuFeatureSource.prototype.notifyActivity = function () {
     for (var li = 0; li < this.activityListeners.length; ++li) {
         try {
             this.activityListeners[li](this.busy);
@@ -94,11 +94,11 @@ ChowChowFeatureSource.prototype.notifyActivity = function () {
     }
 };
 
-ChowChowFeatureSource.prototype.getScales = function () {
+GeeFuTuFeatureSource.prototype.getScales = function () {
     return [];
 };
 
-ChowChowFeatureSource.prototype.fetch = function (chr, min, max, scale, types, pool, callback) {
+GeeFuTuFeatureSource.prototype.fetch = function (chr, min, max, scale, types, pool, callback) {
     var thisB = this;
     var url = this.uri + '?chr=' + chr + '&min=' + min + '&max=' + max;
     if (this.refs) {
@@ -148,8 +148,8 @@ ChowChowFeatureSource.prototype.fetch = function (chr, min, max, scale, types, p
     req.send('');
 };
 
-dalliance_registerSourceAdapterFactory('ChowChowExperiment', function (source) {
-    return {features: new ChowChowFeatureSource(source)};
+dalliance_registerSourceAdapterFactory('geefutuExperiment', function (source) {
+    return {features: new GeeFuTuFeatureSource(source)};
 });
 
 

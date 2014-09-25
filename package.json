@@ -1,5 +1,5 @@
 {
-  "name": "ChowChow",
+  "name": "GeeFuTu",
   "version": "0.0.1",
   "description": "GeeFu version 2",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/wookoouk/ChowChow.git"
+    "url": "https://github.com/wookoouk/GeeFuTu.git"
   },
   "keywords": [
     "bioinformatics",
@@ -17,9 +17,9 @@
   "author": "Martin Page <martin.page@tsl.ac.uk>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/wookoouk/ChowChow/issues"
+    "url": "https://github.com/wookoouk/GeeFuTu/issues"
   },
-  "homepage": "https://github.com/wookoouk/ChowChow",
+  "homepage": "https://github.com/wookoouk/GeeFuTu",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.8.0",

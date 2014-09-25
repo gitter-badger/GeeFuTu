@@ -1,12 +1,12 @@
-# ChowChow (GeeFuTu)
+# GeeFuTu
 
-<img align="right" height="300" src="https://raw.githubusercontent.com/wookoouk/ChowChow/master/public/GeeFuTu.png">
+<img align="right" height="300" src="https://raw.githubusercontent.com/wookoouk/GeeFuTu/master/public/GeeFuTu.png">
 
-> ChowChow, Social Science
+> GeeFuTu, Social Science
 
-ChowChow is a platform for sharing and updating genomics data, projects can be private with per experiment permissions or public for anybody to view and edit.
+GeeFuTu is a platform for sharing and updating genomics data, projects can be private with per experiment permissions or public for anybody to view and edit.
 
-ChowChow is still heavily under development, please check the Road Map for list of completed and upcoming features.
+GeeFuTu is still heavily under development, please check the Road Map for list of completed and upcoming features.
 
 
 ### Road Map
